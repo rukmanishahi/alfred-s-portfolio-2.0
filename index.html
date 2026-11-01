@@ -12,26 +12,13 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;   /* change to "mandatory" for strict slide-by-slide snapping */
-  background: #000;
+  background: #0F0E0E;
 }
 
 body {
   margin: 0;
-  background: transparent;        /* must stay transparent or it hides the background image */
+  background: #0F0E0E;
   -webkit-text-size-adjust: 100%;
-}
-
-/* ---------- Page background (fills the whole screen behind the images) ---------- */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-color: #000;
-  background-image: url("background.png"), url("download.png");  /* uses whichever file exists */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 /* ---------- Each image = one full-screen section ---------- */
