@@ -132,5 +132,21 @@ section img {
     </section>
   </main>
 
+  <!-- If an image doesn't load, try other common filenames for it -->
+  <script>
+    document.querySelectorAll('section img').forEach(function (img) {
+      var n = img.getAttribute('src').slice(0, 2);
+      var tries = [
+        n + '.jpg', n + '.jpeg', n + '.png', n + '.gif', n + '.webp',
+        n + '_jpg.jpg', n + '_jpg.jpeg', n + '.JPG', n + '.JPEG', n + '.PNG', n + '.GIF'
+      ];
+      img.addEventListener('error', function () {
+        var next = tries.shift();
+        if (next) img.src = next;
+      });
+      if (img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
+    });
+  </script>
+
 </body>
 </html>
