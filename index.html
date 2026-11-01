@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
- <title>Alfred's portfolio.✦ ݁</title>
-<link rel="icon" type="image/png" href="star_big.png">
+  <title>Alfred's portfolio.✦ ݁</title>
+  <link rel="icon" type="image/png" href="star_big.png">
   <style>
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -17,7 +17,7 @@ html {
 
 body {
   margin: 0;
-  background: #000;               /* matches the black of your artwork */
+  background: transparent;        /* must stay transparent or it hides the background image */
   -webkit-text-size-adjust: 100%;
 }
 
@@ -27,7 +27,11 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: #000 url("download.png") center / cover no-repeat;
+  background-color: #000;
+  background-image: url("background.png"), url("download.png");  /* uses whichever file exists */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* ---------- Each image = one full-screen section ---------- */
