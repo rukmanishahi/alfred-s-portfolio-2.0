@@ -21,6 +21,15 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+/* ---------- Page background (fills the whole screen behind the images) ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #000 url("download.png") center / cover no-repeat;
+}
+
 /* ---------- Each image = one full-screen section ---------- */
 section {
   width: 100%;
