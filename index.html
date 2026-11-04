@@ -50,13 +50,8 @@ section img {
   gap: 24px;
 }
 
-.footer-logo img {
-  display: block;
-  width: clamp(150px, 22vw, 330px);
-  height: auto;
-}
-
 .footer-links {
+  grid-column: 2;                 /* keeps the circles centred */
   display: flex;
   gap: clamp(14px, 2.4vw, 32px);
 }
@@ -101,19 +96,15 @@ section img {
 /* Phones: slim two-row footer  (logo + icons on top, email underneath) */
 @media (max-width: 700px) {
   .site-footer {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "logo links"
-      "mail mail";
-    gap: 10px 12px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
     padding: 14px 16px;
     padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   }
-  .footer-logo  { grid-area: logo; }
-  .footer-links { grid-area: links; gap: 8px; }
-  .footer-mail  { grid-area: mail; justify-self: center; text-align: center; font-size: 13px; }
+  .footer-links { grid-column: auto; gap: 8px; }
+  .footer-mail  { justify-self: center; text-align: center; font-size: 13px; }
 
-  .footer-logo img { width: 105px; }
   .footer-links a  { width: 32px; height: 32px; }
   .footer-links svg { width: 55%; height: 55%; }
 }
@@ -202,10 +193,6 @@ section img {
   </main>
 
   <footer class="site-footer">
-    <div class="footer-logo">
-      <img src="footer-logo.png" alt="Rukmani Shahi">
-    </div>
-
     <div class="footer-links">
       <a href="https://www.instagram.com/humanityb4eggsnchicks?xtok=MTRidHFoZHZhbmNxeg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram: humanityb4eggsnchicks" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
       <a href="https://www.behance.net/AlfredTennyson" target="_blank" rel="noopener noreferrer" aria-label="Behance: Alfred Tennyson" title="Behance"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="17.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="currentColor">Bē</text></svg></a>
