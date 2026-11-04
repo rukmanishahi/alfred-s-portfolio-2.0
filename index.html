@@ -3,52 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Alfred's portfolio.✦ ݁</title>
-  <link rel="icon" type="image/png" href="star_big.png">
+  <title>Alfred Tennyson — Portfolio 2026</title>
   <style>
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;   /* change to "mandatory" for strict slide-by-slide snapping */
+  overscroll-behavior: none;       /* no bounce / rubber-band at the top and bottom */
   background: #0F0E0E;
 }
 
 body {
   margin: 0;
+  overscroll-behavior: none;
   background: #0F0E0E;
   -webkit-text-size-adjust: 100%;
 }
 
-/* ---------- Each image = one full-screen section ---------- */
+/* ---------- Images stacked edge to edge, no gaps ---------- */
 section {
   width: 100%;
-  height: 100vh;
-  height: 100dvh;                 /* fixes mobile browser address-bar jump */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  scroll-snap-align: start;
+  margin: 0;
+  padding: 0;
+  line-height: 0;                 /* removes the tiny gap browsers leave under images */
 }
 
 section img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;            /* whole image always visible, nothing cropped */
+  height: auto;                   /* each image keeps its own proportions */
+  aspect-ratio: 16 / 9;           /* reserves space while loading so the page doesn't jump */
   user-select: none;
   -webkit-user-drag: none;
 }
-
-/* Want the image to fill the screen edge to edge (crops a little)?
-   Uncomment this block:
-
-@media (min-width: 900px) {
-  section img { object-fit: cover; }
-}
-*/
 
 /* ---------- Dot navigation ---------- */
 .dots {
